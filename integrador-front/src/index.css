@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Paleta apagada pero con presencia. Cada color tiene una version oscura (para texto sobre
+   fondos claros) y una clara (para texto o iconos sobre el fondo oscuro del menu).
+   Para cambiar los colores de todo el sitio basta con editar estos valores. */
+@theme {
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Literata Variable", Georgia, serif;
+
+  --color-ink: #172036;
+  --color-paper: #f1f4fa;
+  --color-mist: #e0e7f4;
+  --color-line: #c5d0e6;
+  --color-deep: #1b2b52;
+  --color-tint: #3b5bdb;
+  --color-tint-dark: #243a94;
+
+  --color-pine: #0f766e;
+  --color-pine-dark: #0b5a54;
+  --color-pine-light: #5eead4;
+
+  --color-harbor: #2f6fe4;
+  --color-harbor-dark: #1d4fb8;
+  --color-harbor-light: #93bbfa;
+
+  --color-straw: #f2a516;
+  --color-straw-dark: #85470a;
+  --color-straw-light: #fcd36b;
+
+  --color-plum: #8b5cf6;
+  --color-plum-dark: #6532c9;
+  --color-plum-light: #c4b0fb;
+
+  --color-rose: #c8344d;
+  --color-rose-dark: #a12036;
+  --color-rose-light: #fba5b3;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-pine);
+    outline-offset: 2px;
+  }
+}
+
+/* Unico movimiento de la portada: los bloques del horario aparecen uno a uno. */
+@keyframes block-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.block-in {
+  animation: block-in 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .block-in {
+    animation: none;
+  }
+}

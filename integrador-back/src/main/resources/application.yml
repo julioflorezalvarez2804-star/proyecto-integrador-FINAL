@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: academic-management
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/academic_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    username: academic_user
+    password: proyectocesde
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8081
+
+app:
+  admin:
+    username: admin
+    email: admin@cesde.edu.co
+    password: Admin12345
+  jwt:
+    secret: b8i2ipDY8EAVJILM70pIOv43rFTSiFOY09Rnmq6fGM6db65e
+    expiration-minutes: 120
